@@ -45,6 +45,22 @@
 			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 		</div>
 		</md-content>
+		<md-content>
+		<form
+			action="/login"
+			method="POST">
+			First name:<br> <input
+				name="username"
+				value="Mickey"
+				type="text"><br> Last name:<br> <input
+				name="password"
+				value="Mouse"
+				type="text"> <br>
+			<br> <input
+				value="Submit"
+				type="submit">
+		</form>
+		</md-content>
 		<md-content
 			layout-padding
 			ng-show="active == 'news'">
