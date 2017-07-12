@@ -5,12 +5,14 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+	response.sendFile( __dirname + "/" + "views/pages/index.html" );
+});
+app.get('/api/:resource', function(request, response) {
+	let resource = request.params.resource;
+	response.header("Content-Type", "application/json");
+	response.sendFile( __dirname + "/mock/" +resource+".json");
 });
 
 app.listen(app.get('port'), function() {
