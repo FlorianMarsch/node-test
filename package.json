@@ -16,7 +16,9 @@
 	"passport-local": "~1.0.0",
 	"connect-flash": "0.1.1",
 	"body-parser":"1.17.2",
-	"cookie-parser":"1.4.3"
+	"cookie-parser":"1.4.3",
+	"mongoose": "~3.8.12",
+	"bcrypt-nodejs" : "0.0.3"
   },
   "repository": {
     "type": "git",
