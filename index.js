@@ -14,8 +14,8 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-
-
+console.log('MONGODB_URI:'+process.env.MONGODB_URI);
+console.log('START PROCESS WITH CONFIG :'+JSON.stringify(process.env));
 
     
 
