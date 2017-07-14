@@ -34,12 +34,8 @@
 			<div class="md-toolbar-tools">
 				<h2 flex >Copa Online</h2>
 		
-				<div  ng-hide="user.id">
-					<a href="#">
-       		   			login
-        			</a>
-
-					oder
+				
+				<div ng-hide="user.id">
 					<md-button href="/register" class=" md-primary md-raised" >
        		   			registrieren
         			</md-button>
@@ -69,6 +65,8 @@
 				</md-nav-item>
 			</md-nav-bar>
 
+				
+
 
 		<md-content
 			layout-padding
@@ -80,25 +78,52 @@
 			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 		</div>
 		</md-content>
-		<md-content>
-		<form
-			action="/login"
-			method="POST">
-			First name:<br> <input
-				name="username"
-				value="Mickey"
-				type="text"><br> Password:<br> <input
-				name="password"
-				value="Mouse"
-				type="text"> <br>
-			<br> <input
-				value="Submit"
-				type="submit">
-		</form>
-		</md-content>
+		
 		<md-content
 			layout-padding
 			ng-show="active == 'news'">
+		
+			<div
+			ng-hide="user.id"
+			layout="row"
+			layout-sm="column"
+			layout-align="space-around">
+			
+				<form action="/login" method="POST">
+			
+			
+		
+
+
+			<md-card >
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Anmeldung</span>
+          </md-card-title-text>
+          
+        </md-card-title>
+		<md-card-content>
+
+ <md-input-container>
+        <label>User</label>
+        <input name="username" value="Mickey" type="text">
+      </md-input-container>
+ <md-input-container>
+        <label>Password</label>
+        <input name="password" value="Mouse" type="password">
+      </md-input-container>
+
+			
+		</md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button type="submit" class=" md-primary md-raised">login</md-button>
+
+        </md-card-actions>
+      </md-card>
+</form>
+			</div>
+
+
 		<div
 			layout="row"
 			layout-sm="column"
