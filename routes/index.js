@@ -36,7 +36,7 @@ module.exports = function(passport){
 	router.get('/user', function(req, res) {
 		
 		if (req.isAuthenticated()){
-			res.send({'id':req.user.id, 'auth':true});
+			res.send({'id':req.user._id, 'auth':true});
 		}else{
 			res.send({'id':undefined, 'auth':false});
 		}
