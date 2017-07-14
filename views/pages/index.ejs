@@ -32,7 +32,7 @@
 		class="md-inline-form">
 		<md-toolbar class="md-accent">
 		<div class="md-toolbar-tools">
-			<h2>NEWS</h2>
+			<h2>NEWS {{user.name}}</h2>
 		</div>
 		</md-toolbar>
 		<md-content
@@ -116,6 +116,7 @@
 
 			scope.active = 'loading';
 			scope.list = [];
+			scope.user = {'id':'<%= userId %>', 'name':'<%= userName %>'};
 
 			$http({
 				method : 'GET',

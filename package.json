@@ -19,7 +19,8 @@
 	"cookie-parser":"1.4.3",
 	"mongoose": "~3.8.12",
 	"bcrypt-nodejs" : "0.0.3",
-	"connect-mongo" :""
+	"connect-mongo" :"",
+	"ejs" :""
   },
   "repository": {
     "type": "git",
