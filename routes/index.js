@@ -43,13 +43,5 @@ module.exports = function(passport){
 		   
 	});
 	
-	router.get('/flash', function(req, res) {
-		
-		
-			res.send({'messages':req.flash('message'), 'flash':true});
-		
-		   
-	});
-
 	return router;
 }
