@@ -31,10 +31,45 @@
 		ng-cloak
 		class="md-inline-form">
 		<md-toolbar class="md-accent">
-		<div class="md-toolbar-tools">
-			<h2>NEWS {{user.name}}</h2>
-		</div>
+			<div class="md-toolbar-tools">
+				<h2 flex >Copa Online</h2>
+		
+				<div  ng-hide="user.id">
+					<a href="#">
+       		   			login
+        			</a>
+
+					oder
+					<md-button href="/register" class=" md-primary md-raised" >
+       		   			registrieren
+        			</md-button>
+				</div>
+				<div  ng-show="user.id">
+					{{user.name}} , 
+					<a href="/signout">
+       		   			logout
+        			</a>
+				</div>
+			</div>
+
 		</md-toolbar>
+		<md-nav-bar
+				ng-show="user.id"
+				md-selected-nav-item="active"
+				nav-bar-aria-label="navigation links">
+				<md-nav-item md-nav-click="goto('kosten')" name="kosten">
+					Kosten
+				</md-nav-item>
+				<md-nav-item md-nav-click="goto('rechnung')" name="rechnung">
+					Verrechnung
+				</md-nav-item>
+				<md-nav-item md-nav-click="goto('sync')" name="sync">
+					<md-icon ng-show="warning === true" >warning</md-icon>
+					Sync
+				</md-nav-item>
+			</md-nav-bar>
+
+
 		<md-content
 			layout-padding
 			ng-show="active == 'loading'">

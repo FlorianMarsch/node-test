@@ -72,7 +72,6 @@ server.get=function(urlPath, ejsView){
 			user.username = request.user.username;
 			
 		}
-		console.log(JSON.stringify(user));
 		response.render(ejsView, {
 	        'userId': user.id,
 	        'userName': user.username
