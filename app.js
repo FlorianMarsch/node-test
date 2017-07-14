@@ -86,11 +86,12 @@ server.mock=function(urlPath, resourceName){
 server.protect=function(urlPath, resourceName){
 	console.log("register protected mock '"+urlPath +"' -> : '"+resourceName+"'");
 	server.app.get(urlPath, function(request, response) {
+
+		response.header("Content-Type", "application/json");
 		if (request.isAuthenticated()){
-			response.header("Content-Type", "application/json");
 			response.sendFile( __dirname + "/mock/"+request.user._id+"/" +resourceName+".json");
 		}else{
-			request.send([]);
+			response.send('[]');
 		}
 	});
 };

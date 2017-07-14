@@ -72,8 +72,7 @@
             </div>
          </md-content>
          <md-content
-            layout-padding
-            ng-show="active == 'news'">
+            layout-padding>
             <div
                ng-hide="user.id"
                layout="row"
@@ -110,19 +109,19 @@
                   flex-xs
                   flex-gt-xs="50"
                   layout="column"
-                  ng-repeat="article in news">
+                  ng-repeat="x in league">
                   <md-card>
                      <img
-                        ng-src="{{article.urlToImage}}"
+                        ng-src="{{x.logo}}"
                         class="md-card-image"
                         alt="Washed Out"> 
                      <md-card-title>
                         <md-card-title-text>
-                           <span class="md-headline">{{article.title}}</span> 
+                           <span class="md-headline">{{x.name}}</span> 
                         </md-card-title-text>
                      </md-card-title>
                      <md-card-content>
-                        {{article.description}} 
+                        {{x.description}} 
                      </md-card-content>
                      <md-card-actions
                         layout="row"
@@ -169,15 +168,20 @@
          	scope.list = [];
          	scope.user = {'id':'<%= userId %>', 'name':'<%= userName %>'};
          
-         	$http({
-         		method : 'GET',
-         		url : '/api/news',
-         		responseType : 'json'
-         	}).then(function(response) {
-         		$scope.news = response.data.articles;
-         		$scope.active = 'news';
-         	});
-         
+         	if(scope.user.id){
+	         	$http({
+	         		method : 'GET',
+	         		url : '/api/league',
+	         		responseType : 'json'
+	         	}).then(function(response) {
+	         		$scope.league = response.data;
+	         		$scope.active = 'choose';
+	         	},function(error) {
+	         		console.log(error);
+	         	});
+         	}else{
+         		$scope.active = 'choose';
+         	}
          });
       </script>
    </body>
