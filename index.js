@@ -5,10 +5,16 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('./db')();
+var SessionStore = require('connect-mongo')(expressSession);
 
 app.set('secretKey', (process.env.SECRET_KEY || 'mySecretKey'));
 
-app.use(expressSession({secret: app.get('secretKey')}));
+app.use(expressSession(
+		{
+			secret: app.get('secretKey'),
+			store: new SessionStore({ mongooseConnection: mongoose.connection })
+		}
+		));
 app.use(passport.initialize());
 app.use(passport.session());
 
