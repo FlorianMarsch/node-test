@@ -40,11 +40,7 @@ var flash = require('connect-flash');
 app.use(flash());
 
 
-app.get('/api/:resource', function(request, response) {
-	let resource = request.params.resource;
-	response.header("Content-Type", "application/json");
-	response.sendFile( __dirname + "/mock/" +resource+".json");
-});
+
 
 //Initialize Passport
 var initPassport = require('./passport/init');
@@ -76,6 +72,26 @@ server.get=function(urlPath, ejsView){
 	        'userId': user.id,
 	        'userName': user.username
 	    });
+	});
+};
+
+server.mock=function(urlPath, resourceName){
+	console.log("register mock '"+urlPath +"' -> : '"+resourceName+"'");
+	server.app.get(urlPath, function(request, response) {
+		response.header("Content-Type", "application/json");
+		response.sendFile( __dirname + "/mock/" +resourceName+".json");
+	});
+};
+
+server.protect=function(urlPath, resourceName){
+	console.log("register protected mock '"+urlPath +"' -> : '"+resourceName+"'");
+	server.app.get(urlPath, function(request, response) {
+		if (request.isAuthenticated()){
+			response.header("Content-Type", "application/json");
+			response.sendFile( __dirname + "/mock/"+request.user._id+"/" +resourceName+".json");
+		}else{
+			request.send([]);
+		}
 	});
 };
 
