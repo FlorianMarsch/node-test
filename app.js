@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('./db')();
 var SessionStore = require('connect-mongo')(expressSession);
 
+var redis = require("redis");
+var cache  = redis.createClient(process.env.REDIS_URL);
 
 module.exports = function(){
 
@@ -90,6 +92,25 @@ server.protect=function(urlPath, resourceName){
 		response.header("Content-Type", "application/json");
 		if (request.isAuthenticated()){
 			response.sendFile( __dirname + "/mock/"+request.user._id+"/" +resourceName+".json");
+		}else{
+			response.send('[]');
+		}
+	});
+};
+
+server.fromCache=function(urlPath, cacheName){
+	console.log("register protected cache '"+urlPath +"' -> : '"+resourceName+"'");
+	server.app.get(urlPath, function(request, response) {
+
+		response.header("Content-Type", "application/json");
+		if (request.isAuthenticated()){
+			cache.get("cacheName",function(err, data){
+				if(err){
+					response.send('[]');
+				}else{
+					response.send(data);
+				}
+			}
 		}else{
 			response.send('[]');
 		}
