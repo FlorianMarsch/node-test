@@ -110,7 +110,7 @@ server.fromCache=function(urlPath, cacheName){
 				}else{
 					response.send(data);
 				}
-			}
+			});
 		}else{
 			response.send('[]');
 		}
