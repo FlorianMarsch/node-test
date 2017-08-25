@@ -32,7 +32,7 @@
          class="md-inline-form">
          <md-toolbar class="md-accent">
             <div class="md-toolbar-tools">
-               <h2 flex >Copa Online {{gameday.season + '-' + gameday.gameday +' Spieltag'}}</h2>
+               <h2 flex >Copa Online {{user.id ? gameday.season + ' ' + gameday.gameday +'. Spieltag' :''}}</h2>
                <div ng-hide="user.id">
                   <md-button href="/register" class=" md-primary md-raised" >
                      registrieren
@@ -109,7 +109,7 @@
                   flex-xs
                   flex-gt-xs="50"
                   layout="column"
-                  ng-repeat="x in players">
+                  ng-repeat="x in gameday.results">
                   <md-card>
                      <img
                         ng-src="{{x.picture}}"
