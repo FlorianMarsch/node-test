@@ -93,7 +93,7 @@ server.protect=function(urlPath, resourceName){
 		if (request.isAuthenticated()){
 			response.sendFile( __dirname + "/mock/"+request.user._id+"/" +resourceName+".json");
 		}else{
-			response.send('[]');
+			response.status(401).send("{'message': 'Unauthenticated'}");
 		}
 	});
 };
@@ -106,13 +106,13 @@ server.fromCache=function(urlPath, cacheName){
 		if (request.isAuthenticated()){
 			cache.get(cacheName,function(err, data){
 				if(err){
-					response.send('[]');
+					response.status(500).send("{'message': 'This is an error!'}");
 				}else{
 					response.send(data);
 				}
 			});
 		}else{
-			response.send('[]');
+			response.status(401).send("{'message': 'Unauthenticated'}");
 		}
 	});
 };
