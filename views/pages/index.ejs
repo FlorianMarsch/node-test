@@ -109,10 +109,10 @@
                   flex-xs
                   flex-gt-xs="50"
                   layout="column"
-                  ng-repeat="x in league">
+                  ng-repeat="x in players">
                   <md-card>
                      <img
-                        ng-src="{{x.logo}}"
+                        ng-src="{{x.url}}"
                         class="md-card-image"
                         alt="Washed Out"> 
                      <md-card-title>
@@ -123,14 +123,6 @@
                      <md-card-content>
                         {{x.description}} 
                      </md-card-content>
-                     <md-card-actions
-                        layout="row"
-                        layout-align="end center">
-                        <md-button>Action
-                           1
-                        </md-button>
-                        <md-button>Action 2</md-button>
-                     </md-card-actions>
                   </md-card>
                </div>
             </div>
@@ -171,10 +163,10 @@
          	if(scope.user.id){
 	         	$http({
 	         		method : 'GET',
-	         		url : '/api/league',
+	         		url : '/api/currentPlayers',
 	         		responseType : 'json'
 	         	}).then(function(response) {
-	         		$scope.league = response.data;
+	         		$scope.players = response;
 	         		$scope.active = 'choose';
 	         	},function(error) {
 	         		console.log(error);
