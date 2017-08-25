@@ -32,7 +32,7 @@
          class="md-inline-form">
          <md-toolbar class="md-accent">
             <div class="md-toolbar-tools">
-               <h2 flex >Copa Online</h2>
+               <h2 flex >Copa Online {{gameday.season + '-' + gameday.gameday +' Spieltag'}}</h2>
                <div ng-hide="user.id">
                   <md-button href="/register" class=" md-primary md-raised" >
                      registrieren
@@ -163,10 +163,10 @@
          	if(scope.user.id){
 	         	$http({
 	         		method : 'GET',
-	         		url : '/api/currentPlayers',
+	         		url : '/api/currentResults',
 	         		responseType : 'json'
 	         	}).then(function(response) {
-	         		$scope.players = response.data;
+	         		$scope.gameday = response.data;
 	         		$scope.active = 'choose';
 	         	},function(error) {
 	         		console.log(error);
