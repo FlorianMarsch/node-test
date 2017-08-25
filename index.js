@@ -14,6 +14,7 @@ app.protect('/api/league', 'league');
 
 app.fromCache('/api/currentGameday', 'currentGameday');
 app.fromCache('/api/currentResults', 'currentResults');
+app.fromCache('/api/liveResults', 'liveResults');
 app.fromCache('/api/currentPlayers', 'currentPlayers');
 
 
