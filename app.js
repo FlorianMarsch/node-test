@@ -104,7 +104,7 @@ server.fromCache=function(urlPath, cacheName){
 
 		response.header("Content-Type", "application/json");
 		if (request.isAuthenticated()){
-			cache.get("cacheName",function(err, data){
+			cache.get(cacheName,function(err, data){
 				if(err){
 					response.send('[]');
 				}else{
