@@ -176,7 +176,12 @@
 	         		responseType : 'json'
 	         	}).then(function(response) {
 	         		$scope.gameday = response.data;
-	         		$scope.active = 'choose';
+	         		if($scope.gameday.results.length === 0){
+	         			$scope.active = 'news';
+	         		}else{
+	         			$scope.active = 'spielstand';
+	         		}
+	         		
 	         	},function(error) {
 	         		console.log(error);
 	         	});
