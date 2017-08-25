@@ -99,7 +99,7 @@ server.protect=function(urlPath, resourceName){
 };
 
 server.fromCache=function(urlPath, cacheName){
-	console.log("register protected cache '"+urlPath +"' -> : '"+resourceName+"'");
+	console.log("register protected cache '"+urlPath +"' -> : '"+cacheName+"'");
 	server.app.get(urlPath, function(request, response) {
 
 		response.header("Content-Type", "application/json");
