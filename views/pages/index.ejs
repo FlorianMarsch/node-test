@@ -166,7 +166,7 @@
 	         		url : '/api/currentPlayers',
 	         		responseType : 'json'
 	         	}).then(function(response) {
-	         		$scope.players = response;
+	         		$scope.players = response.data;
 	         		$scope.active = 'choose';
 	         	},function(error) {
 	         		console.log(error);
