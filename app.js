@@ -152,8 +152,8 @@ server.postProxyToOtherApp=function(urlPath, appName){
 			if(!req.body){
 				res.status(400).send("{'message': 'Bad Request'}");
 			}else{
-				console.log(req.body);
-				var payload = JSON.parse(req.body);
+				
+				var payload = req.body;
 				payload.username=req.user.username;
 				payload.userid=req.user._id;
 				request({
