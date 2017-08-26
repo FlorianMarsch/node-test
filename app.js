@@ -149,24 +149,28 @@ server.postProxyToOtherApp=function(urlPath, appName){
 
 		res.header("Content-Type", "application/json");
 		if (req.isAuthenticated()){
+			if(!req.body){
+				res.status(400).send("{'message': 'Bad Request'}");
+			}else{
+				var payload = JSON.parse(req.body);
+				payload.username=req.user.username;
+				payload.userid=req.user._id;
+				request({
+				    method: 'POST',
+				    uri: process.env[appName]+urlPath,
+				    body:JSON.stringify(payload)
+				  },
+				  function (error, response, body) {
+				    if (error) {
+				    		res.status(500).send("{'message': 'This is an error!'}");
+				    }else{
+				    		res.status(200).send(body);
+				    }
+				    
+				  });
+			}
 			
 			
-			var payload = JSON.parse(req.body);
-			payload.username=req.user.username;
-			payload.userid=req.user._id;
-			request({
-			    method: 'POST',
-			    uri: process.env[appName]+urlPath,
-			    body:JSON.stringify(payload)
-			  },
-			  function (error, response, body) {
-			    if (error) {
-			    		res.status(500).send("{'message': 'This is an error!'}");
-			    }else{
-			    		res.status(200).send(body);
-			    }
-			    
-			  });
 		}else{
 			res.status(401).send("{'message': 'Unauthenticated'}");
 		}
