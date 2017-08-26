@@ -133,7 +133,7 @@ server.getProxyToOtherApp=function(urlPath, appName){
 			    if (error) {
 			    		res.status(500).send("{'message': 'This is an error!'}");
 			    }else{
-			    		res.status(respose.statusCode).send(body);
+			    		res.status(200).send(body);
 			    }
 			    
 			  });
