@@ -129,35 +129,7 @@
                   </md-card>
                </form>
             </div>
-            <div
-               layout="row"
-            
-               ng-show="active == 'news'">
-              
-               
-                       <md-input-container  class="md-block" flex-gt-xs>
-				        <label>Tippe eine Nachricht ein</label>
-				        <input ng-model="createNews.message">
-				      </md-input-container>
-					<div>
-					      <md-button  ng-click="submitNews()">senden</md-button>
-				    </div>
-			</div>
-			  <div
-               layout="row"
-               ng-show="active == 'news'">
-               
-               
-                 <md-list flex>
-			        <md-list-item class="md-2-line" ng-repeat="x in news" ng-click="null">
-			          <div class="md-list-item-text" layout="column">
-			            <h3>{{ x.username }} - {{ x.time }}</h3>
-			            <h4>{{ x.message }}</h4>
-			          </div>
-			        </md-list-item>
-              	</md-list>
-                 
-            </div>
+            <% include includes/news/news.html.ejs %>
          </md-content>
       </div>
       <!-- Angular Material requires Angular.js Libraries -->
