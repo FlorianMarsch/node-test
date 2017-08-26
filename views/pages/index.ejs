@@ -118,10 +118,13 @@
                <div layout-gt-xs="row">
                 <md-card>
                      <md-card-content>
-                       <md-input-container>
+                       <md-input-container  class="md-block" flex-gt-xs>
 				        <label>Tippe eine Nachricht ein</label>
 				        <input ng-model="createNews.message">
 				      </md-input-container>
+				      <md-card-actions layout="row" layout-align="end center">
+				          <md-button>senden</md-button>
+				        </md-card-actions>
                      </md-card-content>
                   </md-card>
                </div>
