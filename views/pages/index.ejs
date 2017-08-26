@@ -123,13 +123,8 @@
 			
 				          <md-button>senden</md-button>
 			
-               </div>
-               <div
-                  flex-xs
-                  flex-gt-xs="100"
-                  layout="column"
-                  ng-repeat="x in news">
-                  <md-card>
+              
+                  <md-card ng-repeat="x in news">
                      <md-card-title>
                         <md-card-title-text>
                            <span class="md-headline">{{x.username}}</span> 
@@ -141,7 +136,7 @@
                         {{x.message}}
                      </md-card-content>
                   </md-card>
-               </div>
+             
             </div>
          </md-content>
       </div>
