@@ -1,5 +1,6 @@
 var express = require('express');
 var passport = require('passport');
+var request = require('request');
 var expressSession = require('express-session');
 var app = express();
 var cookieParser = require('cookie-parser');
@@ -113,6 +114,54 @@ server.fromCache=function(urlPath, cacheName){
 			});
 		}else{
 			response.status(401).send("{'message': 'Unauthenticated'}");
+		}
+	});
+};
+
+server.getProxyToOtherApp=function(urlPath, appName){
+	console.log("register proxy to other cache '"+urlPath +"' -> : '"+appName+"'");
+	server.app.get(urlPath, function(req, res) {
+
+		res.header("Content-Type", "application/json");
+		if (req.isAuthenticated()){
+			request({
+			    method: 'GET',
+			    uri: process.env[appName]+urlPath
+			  },
+			  function (error, response, body) {
+			    if (error) {
+			    		res.status(500).send("{'message': 'This is an error!'}");
+			    }else{
+			    		res.status(200).send(body);
+			    }
+			    
+			  });
+		}else{
+			res.status(401).send("{'message': 'Unauthenticated'}");
+		}
+	});
+};
+server.postProxyToOtherApp=function(urlPath, appName){
+	console.log("register proxy to other cache '"+urlPath +"' -> : '"+appName+"'");
+	server.app.post(urlPath, function(req, res) {
+
+		res.header("Content-Type", "application/json");
+		if (req.isAuthenticated()){
+			request({
+			    method: 'POST',
+			    uri: process.env[appName]+urlPath,
+			    body:req.body
+			  },
+			  function (error, response, body) {
+			    if (error) {
+			    		res.status(500).send("{'message': 'This is an error!'}");
+			    }else{
+			    		res.status(200).send(body);
+			    }
+			    
+			  });
+		}else{
+			res.status(401).send("{'message': 'Unauthenticated'}");
 		}
 	});
 };

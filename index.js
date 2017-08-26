@@ -8,7 +8,6 @@ var app = require('./app')();
 
 app.get('/', 'pages/index');
 
-app.mock('/api/news', 'news');
 app.protect('/api/league', 'league');
 
 
@@ -19,4 +18,5 @@ app.fromCache('/api/currentPlayers', 'currentPlayers');
 
 
 
+app.getProxyToOtherApp('/api/news', 'NEWS_APP');
 
