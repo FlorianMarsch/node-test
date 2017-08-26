@@ -185,7 +185,7 @@
 	         		responseType : 'json'
 	         	}).then(function(response) {
 	         		$scope.gameday = response.data;
-	         		loadNews(function(){
+	         		scope.loadNews(function(){
 		         		if($scope.gameday.results.length === 0){
 		         			$scope.active = 'news';
 		         		}else{
