@@ -159,7 +159,8 @@ server.postProxyToOtherApp=function(urlPath, appName){
 				request({
 				    method: 'POST',
 				    uri: process.env[appName]+urlPath,
-				    json:payload
+				    body:payload,
+				    json:true
 				  },
 				  function (error, response, body) {
 				    if (error) {
