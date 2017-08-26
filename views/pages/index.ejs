@@ -172,7 +172,27 @@
          	scope.active = 'loading';
          	scope.list = [];
          	scope.user = {'id':'<%= userId %>', 'name':'<%= userName %>'};
+         	
+         	scope.news=[];
          	scope.createNews={'message':''};
+         	scope.loadNews = function(callback){
+         			$http({
+		         		method : 'GET',
+		         		url : '/api/news',
+		         		responseType : 'json'
+		         	}).then(function(response) {
+		         		scope.news=response;
+		         		if(callback){
+		         			callback();
+		         		}
+		         	},function(error) {
+		         		console.log(error);
+		         		if(callback){
+		         			callback();
+		         		}
+		         	});
+         		}
+         	};
          	scope.submitNews = function(){
          		if(scope.createNews !== ''){
          			scope.active = 'loading';
@@ -182,8 +202,10 @@
 		         		responseType : 'json',
 		         		body:JSON.stringfiy(scope.createNews)
 		         	}).then(function(response) {
-		         		window.location.reload();
-		         		
+		         		loadNews(function(){
+		         			scope.createNews='';
+		         			scope.active = 'news';
+		         		});
 		         	},function(error) {
 		         		console.log(error);
 		         	});
