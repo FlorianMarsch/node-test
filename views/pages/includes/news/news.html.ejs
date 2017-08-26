@@ -6,7 +6,7 @@
                
                        <md-input-container  class="md-block" flex-gt-xs>
 				        <label>Tippe eine Nachricht ein</label>
-				        <input ng-model="createNews.message">
+				        <input ng-model="createNews.message" md-maxlength="100">
 				      </md-input-container>
 					<div>
 					      <md-button  ng-click="submitNews()">senden</md-button>
