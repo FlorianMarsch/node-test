@@ -194,7 +194,7 @@
      		};
          	
          	scope.submitNews = function(){
-         		if(scope.createNews !== ''){
+         		if(scope.createNews.message !== ''){
          			scope.active = 'loading';
          			$http({
 		         		method : 'POST',
@@ -203,7 +203,7 @@
 		         		body:JSON.stringifiy(scope.createNews)
 		         	}).then(function(response) {
 		         		loadNews(function(){
-		         			scope.createNews='';
+		         			scope.createNews.message='';
 		         			scope.active = 'news';
 		         		});
 		         	},function(error) {
