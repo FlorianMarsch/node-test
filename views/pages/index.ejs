@@ -200,7 +200,7 @@
 		         		method : 'POST',
 		         		url : '/api/news',
 		         		responseType : 'json',
-		         		body:JSON.stringifiy(scope.createNews)
+		         		body:JSON.stringify(scope.createNews)
 		         	}).then(function(response) {
 		         		loadNews(function(){
 		         			scope.createNews.message='';
