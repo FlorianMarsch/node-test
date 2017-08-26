@@ -156,7 +156,6 @@ server.postProxyToOtherApp=function(urlPath, appName){
 				var payload = req.body;
 				payload.username=req.user.username;
 				payload.userid=req.user._id;
-				console.log(payload);
 				request({
 				    method: 'POST',
 				    uri: process.env[appName]+urlPath,
