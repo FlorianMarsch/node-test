@@ -113,24 +113,29 @@
             <div
                layout="row"
                layout-sm="column"
-               layout-align="space-around">
+               layout-align="space-around"
+               ng-show="active == 'news'">
+               <div>
+                <md-input-container>
+			        <label>Title</label>
+			        <input ng-model="createNews.message">
+			      </md-input-container>
+               </div>
                <div
                   flex-xs
-                  flex-gt-xs="50"
+                  flex-gt-xs="100"
                   layout="column"
-                  ng-repeat="x in gameday.results">
+                  ng-repeat="x in news">
                   <md-card>
-                     <img
-                        ng-src="{{x.picture}}"
-                        class="md-card-image"
-                        alt="Washed Out"> 
                      <md-card-title>
                         <md-card-title-text>
-                           <span class="md-headline">{{x.name}}</span> 
+                           <span class="md-headline">{{x.username}}</span> 
+                            <span class="md-subhead">{{x.time}}</span>
                         </md-card-title-text>
                      </md-card-title>
+                     
                      <md-card-content>
-                        {{x.position}} - {{x.points}}
+                        {{x.message}}
                      </md-card-content>
                   </md-card>
                </div>
@@ -168,6 +173,7 @@
          	scope.active = 'loading';
          	scope.list = [];
          	scope.user = {'id':'<%= userId %>', 'name':'<%= userName %>'};
+         	scope.createNews={'message':''};
          
          	if(scope.user.id){
 	         	$http({
