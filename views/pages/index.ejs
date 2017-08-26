@@ -120,23 +120,24 @@
 				        <label>Tippe eine Nachricht ein</label>
 				        <input ng-model="createNews.message">
 				      </md-input-container>
-			
-				          <md-button>senden</md-button>
-			
-              
-                  <md-card ng-repeat="x in news">
-                     <md-card-title>
-                        <md-card-title-text>
-                           <span class="md-headline">{{x.username}}</span> 
-                            <span class="md-subhead">{{x.time}}</span>
-                        </md-card-title-text>
-                     </md-card-title>
-                     
-                     <md-card-content>
-                        {{x.message}}
-                     </md-card-content>
-                  </md-card>
-             
+					<div>
+					      <md-button>senden</md-button>
+				    </div>
+			</div>
+			  <div
+               layout="row"
+               ng-show="active == 'news'">
+               
+               
+                 <md-list flex>
+			        <md-list-item class="md-2-line" ng-repeat="x in news" ng-click="null">
+			          <div class="md-list-item-text" layout="column">
+			            <h3>{{ x.username }} - {{ x.time }}</h3>
+			            <h4>{{ x.message }}</h4>
+			          </div>
+			        </md-list-item>
+              	</md-list>
+                 
             </div>
          </md-content>
       </div>
