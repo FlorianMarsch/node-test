@@ -174,44 +174,9 @@
          	scope.list = [];
          	scope.user = {'id':'<%= userId %>', 'name':'<%= userName %>'};
          	
-         	scope.news=[];
-         	scope.createNews={'message':''};
-         	scope.loadNews = function(callback){
-     			$http({
-	         		method : 'GET',
-	         		url : '/api/news',
-	         		responseType : 'json'
-	         	}).then(function(response) {
-	         		scope.news=response;
-	         		if(callback){
-	         			callback();
-	         		}
-	         	},function(error) {
-	         		console.log(error);
-	         		if(callback){
-	         			callback();
-	         		}
-	         	});
-     		};
+         	<% include includes/news/news.js.ejs %>
          	
-         	scope.submitNews = function(){
-         		if(scope.createNews.message !== ''){
-         			scope.active = 'loading';
-         			$http({
-		         		method : 'POST',
-		         		url : '/api/news',
-		         		responseType : 'json',
-		         		body:JSON.stringify(scope.createNews)
-		         	}).then(function(response) {
-		         		loadNews(function(){
-		         			scope.createNews.message='';
-		         			scope.active = 'news';
-		         		});
-		         	},function(error) {
-		         		console.log(error);
-		         	});
-         		}
-         	};
+         	
          
          	if(scope.user.id){
 	         	$http({
@@ -220,12 +185,13 @@
 	         		responseType : 'json'
 	         	}).then(function(response) {
 	         		$scope.gameday = response.data;
-	         		if($scope.gameday.results.length === 0){
-	         			$scope.active = 'news';
-	         		}else{
-	         			$scope.active = 'spielstand';
-	         		}
-	         		
+	         		loadNews(function(){
+		         		if($scope.gameday.results.length === 0){
+		         			$scope.active = 'news';
+		         		}else{
+		         			$scope.active = 'spielstand';
+		         		}
+	         		});
 	         	},function(error) {
 	         		console.log(error);
 	         	});
