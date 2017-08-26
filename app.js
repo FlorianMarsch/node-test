@@ -149,10 +149,14 @@ server.postProxyToOtherApp=function(urlPath, appName){
 
 		res.header("Content-Type", "application/json");
 		if (req.isAuthenticated()){
+			
+			
+			var payload = JSON.parse(req.body);
+			payload.username=request.user.username;
 			request({
 			    method: 'POST',
 			    uri: process.env[appName]+urlPath,
-			    body:req.body
+			    body:JSON.stringify(payload)
 			  },
 			  function (error, response, body) {
 			    if (error) {
