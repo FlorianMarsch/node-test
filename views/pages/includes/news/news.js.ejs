@@ -28,7 +28,7 @@ scope.submitNews = function(){
      		method : 'POST',
      		url : '/api/news',
      		responseType : 'json',
-     		body:JSON.stringify(scope.createNews)
+     		data:JSON.stringify(scope.createNews)
      	}).then(function(response) {
      		loadNews(function(){
      			scope.createNews.message='';
