@@ -71,6 +71,16 @@
                Profile
             </md-nav-item>
          </md-nav-bar>
+          <md-content
+            layout-padding
+            ng-show="active == 'error'">
+            <div
+               layout="row"
+               layout-sm="column"
+               layout-align="space-around">
+               {{error}}
+            </div>
+         </md-content>
          <md-content
             layout-padding
             ng-show="active == 'loading'">
