@@ -30,26 +30,10 @@
          layout="column"
          ng-cloak
          class="md-inline-form">
-         <md-toolbar class="md-accent">
-            <div class="md-toolbar-tools">
-               <h2 flex >Copa Online {{user.id ? gameday.season + ' ' + gameday.gameday +'. Spieltag' :''}}</h2>
-               <div ng-hide="user.id">
-                  <md-button href="/register" class=" md-primary md-raised" >
-                     registrieren
-                  </md-button>
-               </div>
-               <div  ng-show="user.id">
-                  {{user.name}} , 
-                  <a href="/signout">
-                  logout
-                  </a>
-               </div>
-            </div>
-         </md-toolbar>
-         
-         <% include includes/nav/navbar.html.ejs %>
-         <% include includes/error/error.html.ejs %>
-        <% include includes/loading/loading.html.ejs %>
+        		<% include includes/nav/toolbar.html.ejs %>
+         	<% include includes/nav/navbar.html.ejs %>
+         	<% include includes/error/error.html.ejs %>
+        		<% include includes/loading/loading.html.ejs %>
          <md-content
             layout-padding>
 
