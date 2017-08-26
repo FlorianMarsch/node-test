@@ -133,7 +133,7 @@ server.getProxyToOtherApp=function(urlPath, appName){
 			    if (error) {
 			    		res.status(500).send("{'message': 'This is an error!'}");
 			    }else{
-			    		res.status(200).send(body);
+			    		res.status(respose.statusCode).send(body);
 			    }
 			    
 			  });
@@ -159,7 +159,7 @@ server.postProxyToOtherApp=function(urlPath, appName){
 				request({
 				    method: 'POST',
 				    uri: process.env[appName]+urlPath,
-				    body:JSON.stringify(payload)
+				    json:payload
 				  },
 				  function (error, response, body) {
 				    if (error) {
