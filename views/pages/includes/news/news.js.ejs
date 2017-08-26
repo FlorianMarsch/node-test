@@ -30,7 +30,7 @@ scope.submitNews = function(){
      		responseType : 'json',
      		data:JSON.stringify(scope.createNews)
      	}).then(function(response) {
-     		loadNews(function(){
+     		scope.loadNews(function(){
      			scope.createNews.message='';
      			scope.active = 'news';
      		});
