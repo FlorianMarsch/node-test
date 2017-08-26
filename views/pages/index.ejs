@@ -121,7 +121,7 @@
 				        <input ng-model="createNews.message">
 				      </md-input-container>
 					<div>
-					      <md-button>senden</md-button>
+					      <md-button  ng-click="submitNews">senden</md-button>
 				    </div>
 			</div>
 			  <div
@@ -173,6 +173,22 @@
          	scope.list = [];
          	scope.user = {'id':'<%= userId %>', 'name':'<%= userName %>'};
          	scope.createNews={'message':''};
+         	scope.submitNews = function(){
+         		if(scope.createNews !== ''){
+         			scope.active = 'loading';
+         			$http({
+		         		method : 'POST',
+		         		url : '/api/news',
+		         		responseType : 'json',
+		         		body:JSON.stringfiy(scope.createNews)
+		         	}).then(function(response) {
+		         		window.location.reload();
+		         		
+		         	},function(error) {
+		         		console.log(error);
+		         	});
+         		}
+         	};
          
          	if(scope.user.id){
 	         	$http({
