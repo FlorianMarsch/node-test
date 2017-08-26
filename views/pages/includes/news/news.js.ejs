@@ -6,7 +6,7 @@ scope.loadNews = function(callback){
  		url : '/api/news',
  		responseType : 'json'
  	}).then(function(response) {
- 		scope.news=response;
+ 		scope.news=response.data;
  		if(callback){
  			callback();
  		}
