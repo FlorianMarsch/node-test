@@ -115,11 +115,15 @@
                layout-sm="column"
                layout-align="space-around"
                ng-show="active == 'news'">
-               <div>
-                <md-input-container>
-			        <label>Tippe eine Nachricht ein</label>
-			        <input ng-model="createNews.message">
-			      </md-input-container>
+               <div layout-gt-xs="row">
+                <md-card>
+                     <md-card-content>
+                       <md-input-container>
+				        <label>Tippe eine Nachricht ein</label>
+				        <input ng-model="createNews.message">
+				      </md-input-container>
+                     </md-card-content>
+                  </md-card>
                </div>
                <div
                   flex-xs
