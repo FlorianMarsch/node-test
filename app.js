@@ -119,7 +119,8 @@ server.fromCache=function(urlPath, cacheName){
 };
 
 server.getProxyToOtherApp=function(urlPath, appName){
-	console.log("register proxy to other cache '"+urlPath +"' -> : '"+appName+"'");
+	console.log("register proxy to other app '"+urlPath +"' -> : '"+appName+"'");
+	console.log(process.env[appName]);
 	server.app.get(urlPath, function(req, res) {
 
 		res.header("Content-Type", "application/json");
@@ -142,7 +143,8 @@ server.getProxyToOtherApp=function(urlPath, appName){
 	});
 };
 server.postProxyToOtherApp=function(urlPath, appName){
-	console.log("register proxy to other cache '"+urlPath +"' -> : '"+appName+"'");
+	console.log("register proxy to other app '"+urlPath +"' -> : '"+appName+"'");
+	console.log(process.env[appName]);
 	server.app.post(urlPath, function(req, res) {
 
 		res.header("Content-Type", "application/json");
