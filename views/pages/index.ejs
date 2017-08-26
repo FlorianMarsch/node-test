@@ -48,6 +48,7 @@
          </md-toolbar>
          <md-nav-bar
             ng-show="user.id"
+            ng-hide="active == 'loading'"
             md-selected-nav-item="active"
             nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-click="goto('news')" name="news">
