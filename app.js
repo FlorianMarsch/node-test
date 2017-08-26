@@ -165,7 +165,7 @@ server.postProxyToOtherApp=function(urlPath, appName){
 				    if (error) {
 				    		res.status(500).send("{'message': 'This is an error!'}");
 				    }else{
-				    		res.status(200).send(body);
+				    		res.status(response.statusCode).send(body);
 				    }
 				    
 				  });
