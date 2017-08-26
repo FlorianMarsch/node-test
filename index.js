@@ -19,4 +19,4 @@ app.fromCache('/api/currentPlayers', 'currentPlayers');
 
 
 app.getProxyToOtherApp('/api/news', 'NEWS_APP');
-
+app.postProxyToOtherApp('/api/news', 'NEWS_APP');
