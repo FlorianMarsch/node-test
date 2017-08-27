@@ -26,7 +26,23 @@ module.exports = function(passport){
                     }
                     // User and password both match, return user from done method
                     // which will be treated like success
-                    return done(null, user);
+                    
+                    
+                    
+                    request({
+	        			    method: 'GET',
+	        			    uri: process.env.PROFILE_APP+"/api/profile/"+user.profileId;
+	        			  },
+	        			  function (error, response, body) {
+	        			    if (error) {
+	                            return done(null, false, req.flash('message', 'Profile Not found.'));   
+	        			    }else{
+	        			    		user.profile = body
+	        			    		return done(null, user);
+	        			    }
+	        			  });
+                    
+                    
                 }
             );
 
