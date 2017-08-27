@@ -21,6 +21,8 @@ app.fromCache('/api/currentPlayers', 'currentPlayers');
 app.getProxyToOtherApp('/api/news', 'NEWS_APP');
 app.postProxyToOtherApp('/api/news', 'NEWS_APP');
 
+//:profileId is used for authorization
+
 app.getProxyToOtherApp('/api/profile', 'PROFILE_APP');
 app.getProxyToOtherApp('/api/profile/:profileId', 'PROFILE_APP');
 app.postProxyToOtherApp('/api/profile/:profileId', 'PROFILE_APP');
