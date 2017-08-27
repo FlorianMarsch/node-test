@@ -18,6 +18,7 @@
             layout-padding>
 				<% include includes/login/login.html.ejs %>
             		<% include includes/news/news.html.ejs %>
+            		<% include includes/profile/profile.html.ejs %>
          </md-content>
       </div>
      
@@ -41,7 +42,7 @@
          	scope.user = {'id':'<%= userId %>', 'name':'<%= userName %>'};
          	
          	<% include includes/news/news.js.ejs %>
-         	
+         	<% include includes/profile/profile.js.ejs %>
          	
          
          	if(scope.user.id){

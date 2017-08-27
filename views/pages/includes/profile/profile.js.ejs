@@ -1,0 +1,42 @@
+scope.profile={};
+scope.loadProfile = function(callback){
+	$http({
+ 		method : 'GET',
+ 		url : '/api/profile/'+scope.user.id,
+ 		responseType : 'json'
+ 	}).then(function(response) {
+ 		scope.profile=response.data;
+ 		if(callback){
+ 			callback();
+ 		}
+ 	},function(error) {
+ 		console.log(error);
+ 		if(callback){
+ 			callback(error);
+ 		}else{
+ 			scope.active = 'error';
+     		scope.error = error;
+ 		}
+ 	});
+};
+if(scope.user.id){
+	scope.loadProfile();
+}
+
+scope.submitProfile = function(){
+		scope.active = 'loading';
+		$http({
+     		method : 'POST',
+ 			url : '/api/profile/'+scope.user.id,
+     		responseType : 'json',
+     		data:JSON.stringify(scope.profile)
+     	}).then(function(response) {
+     		scope.loadProfile(function(){
+     			scope.active = 'profile';
+     		});
+     	},function(error) {
+     		scope.active = 'error';
+     		scope.error = error;
+     	});
+	
+};
