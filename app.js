@@ -67,8 +67,8 @@ server.get=function(urlPath, ejsView){
 		var user = {'id':undefined, 'username':undefined};
 		if(request.user){
 			
-			user.id = request.user._id;
-			user.username = request.user.username;
+			user.id = request.user.profileId;
+			user.username = request.user.profile.name;
 			
 		}
 		response.render(ejsView, {
