@@ -124,7 +124,6 @@ server.getProxyToOtherApp=function(urlPath, appName){
 	server.app.get(urlPath, function(req, res) {
 
 		res.header("Content-Type", "application/json");
-		
 		if (req.isAuthenticated()){
 			request({
 			    method: 'GET',
@@ -153,7 +152,13 @@ server.postProxyToOtherApp=function(urlPath, appName){
 			if(!req.body){
 				res.status(400).send("{'message': 'Bad Request'}");
 			}else{
-				
+				if(urlPath.contain(":profileId")){
+					var profileId = req.params.profileId;
+					if(profileId !=== req.user.profileId){
+						res.status(403).send("{'message': 'Unauthorized'}");
+						return;
+					}
+				}
 				var payload = req.body;
 				payload.username=req.user.username;
 				payload.userid=req.user._id;
