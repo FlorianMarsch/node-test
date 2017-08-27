@@ -38,6 +38,7 @@ module.exports = function(passport){
 	        			    if (error) {
 	                            return done(null, false, req.flash('message', 'Profile Not found.'));   
 	        			    }else{
+	        			    		console.log("login : "+body);
 	        			    		return done(null, body);
 	        			    }
 	        			  });
