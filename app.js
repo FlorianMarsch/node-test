@@ -124,10 +124,11 @@ server.getProxyToOtherApp=function(urlPath, appName){
 	server.app.get(urlPath, function(req, res) {
 
 		res.header("Content-Type", "application/json");
+		
 		if (req.isAuthenticated()){
 			request({
 			    method: 'GET',
-			    uri: process.env[appName]+urlPath
+			    uri: process.env[appName]+req.path
 			  },
 			  function (error, response, body) {
 			    if (error) {
@@ -156,9 +157,10 @@ server.postProxyToOtherApp=function(urlPath, appName){
 				var payload = req.body;
 				payload.username=req.user.username;
 				payload.userid=req.user._id;
+				
 				request({
 				    method: 'POST',
-				    uri: process.env[appName]+urlPath,
+				    uri: process.env[appName]+req.path,
 				    body:payload,
 				    json:true
 				  },
