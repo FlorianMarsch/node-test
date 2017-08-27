@@ -154,13 +154,13 @@ server.postProxyToOtherApp=function(urlPath, appName){
 			}else{
 				if(urlPath.contain(":profileId")){
 					var profileId = req.params.profileId;
-					if(profileId !== req.user.profileId){
+					if(profileId !== req.user._id){
 						res.status(403).send("{'message': 'Unauthorized'}");
 						return;
 					}
 				}
 				var payload = req.body;
-				payload.username=req.user.username;
+				payload.username=req.user.name;
 				payload.userid=req.user._id;
 				
 				request({
