@@ -32,7 +32,7 @@ module.exports = function(passport){
                     
                     request({
 	        			    method: 'GET',
-	        			    uri: process.env.PROFILE_APP+"/api/profile/"+user.profileId;
+	        			    uri: process.env.PROFILE_APP+"/api/profile/"+user.profileId
 	        			  },
 	        			  function (error, response, body) {
 	        			    if (error) {
