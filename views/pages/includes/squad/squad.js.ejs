@@ -1,0 +1,24 @@
+scope.squad={};
+scope.loadSquad = function(callback){
+	$http({
+ 		method : 'GET',
+ 		url : '/api/squad/'+scope.user.id,
+ 		responseType : 'json'
+ 	}).then(function(response) {
+ 		scope.squad=response.data;
+ 		if(callback){
+ 			callback();
+ 		}
+ 	},function(error) {
+ 		console.log(error);
+ 		if(callback){
+ 			callback(error);
+ 		}else{
+ 			scope.active = 'error';
+     		scope.error = error;
+ 		}
+ 	});
+};
+if(scope.user.id){
+	scope.loadSquad();
+}
