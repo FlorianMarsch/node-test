@@ -26,3 +26,17 @@ app.postProxyToOtherApp('/api/news', 'NEWS_APP');
 app.getProxyToOtherApp('/api/profile', 'PROFILE_APP');
 app.getProxyToOtherApp('/api/profile/:profileId', 'PROFILE_APP');
 app.postProxyToOtherApp('/api/profile/:profileId', 'PROFILE_APP');
+
+
+app.getProxyToOtherApp('/api/squad/:ownerId', 'PLAYER_APP');
+app.getProxyToOtherApp('/api/player', 'PLAYER_APP');
+app.getProxyToOtherApp('api/player/:playerId', 'PLAYER_APP');
+app.getProxyToOtherApp('/api/offer/from/:profileId', 'PLAYER_APP');
+app.getProxyToOtherApp('/api/offer/to/:profileId', 'PLAYER_APP');
+app.postProxyToOtherApp('/api/offer/from/:profileId', 'PLAYER_APP');
+app.postProxyToOtherApp('/api/offer/to/:profileId', 'PLAYER_APP');		
+		
+		
+		
+		
+		
