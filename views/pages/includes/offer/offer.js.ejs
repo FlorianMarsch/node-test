@@ -1,0 +1,46 @@
+scope.demands=[];
+scope.offers=[];
+scope.loadOffers = function(callback){
+	$http({
+ 		method : 'GET',
+ 		url : '/api/offer/to/'+scope.user.id,
+ 		responseType : 'json'
+ 	}).then(function(response) {
+ 		scope.offers=response.data;
+ 		if(callback){
+ 			callback();
+ 		}
+ 	},function(error) {
+ 		console.log(error);
+ 		if(callback){
+ 			callback(error);
+ 		}else{
+ 			scope.active = 'error';
+     		scope.error = error;
+ 		}
+ 	});
+};
+scope.loadDemands = function(callback){
+	$http({
+ 		method : 'GET',
+ 		url : '/api/offer/from/'+scope.user.id,
+ 		responseType : 'json'
+ 	}).then(function(response) {
+ 		scope.demands=response.data;
+ 		if(callback){
+ 			callback();
+ 		}
+ 	},function(error) {
+ 		console.log(error);
+ 		if(callback){
+ 			callback(error);
+ 		}else{
+ 			scope.active = 'error';
+     		scope.error = error;
+ 		}
+ 	});
+};
+if(scope.user.id){
+	scope.loadOffers();
+	scope.loadDemands();
+}
