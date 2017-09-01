@@ -2,7 +2,7 @@
 <div
 	layout="row"
     ng-show="active == 'squad'">
-    Deine Manschaft enhält {{squad.players.length}} Spieler.<br>
+    Deine Manschaft enthält {{squad.players.length}} Spieler.<br>
 	Du hast noch ein Budget von {{squad.money}} Copa Credits zur Verfügung.
 </div>
 <div
@@ -15,7 +15,10 @@
           <div class="md-list-item-text" layout="column">
             <h3>{{ player.name }}</h3>
             <h4>{{ player.position }}</h4>
-            <p>{{ player.points}}</p>
+            <p>{{ player.points}} Punkte</p>
+          </div>
+          <div class="md-list-item-text" layout="column">
+            <p>{{ player.lastUse}}</p>
           </div>
 		</md-list-item>
 	</md-list>
