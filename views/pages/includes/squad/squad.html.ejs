@@ -15,7 +15,7 @@
           <div class="md-list-item-text" layout="column">
             <h3>{{ player.name }}</h3> 
             <h4>{{ player.position }}</h4>
-            <p>{{ player.points}} Punkte, Letzter Einsatz : {{ player.lastUse}}</p>
+            <p>{{ player.points}} Punkte {{ player.lastUse ? ', Letzter Einsatz : '+player.lastUse : ''}}</p>
           </div>
          
 		</md-list-item>
