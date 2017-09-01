@@ -13,9 +13,9 @@
         <md-list-item class="md-3-line" ng-repeat="player in squad.players" ng-click="null">
           <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
           <div class="md-list-item-text" layout="column">
-            <span><h3>{{ player.name }}</h3> Letzter Einsatz : {{ player.lastUse}}</span>
+            <h3>{{ player.name }}</h3> 
             <h4>{{ player.position }}</h4>
-            <p>{{ player.points}} Punkte</p>
+            <p>{{ player.points}} Punkte, Letzter Einsatz : {{ player.lastUse}}</p>
           </div>
          
 		</md-list-item>
