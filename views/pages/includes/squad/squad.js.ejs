@@ -19,6 +19,40 @@ scope.loadSquad = function(callback){
  		}
  	});
 };
+
+scope.addToLineUp = function(element){
+	scope.squad.lineUp.push(element._id);
+	scope.saveLineUp();
+};
+scope.removeFromLineUp = function(element){
+	var index = scope.squad.lineUp.indexOf(element._id);
+	if (index > -1) {
+		scope.squad.lineUp.splice(index, 1);
+		scope.saveLineUp();
+	}
+};
+
+scope.saveLineUp = function(callback){
+	$http({
+ 		method : 'POST',
+ 		url : '/api/lineUp/'+scope.user.id,
+		 responseType : 'json',
+		 data:JSON.stringify(scope.squad.lineUp)
+ 	}).then(function(response) {
+ 		scope.squad=response.data;
+ 		if(callback){
+ 			callback();
+ 		}
+ 	},function(error) {
+ 		console.log(error);
+ 		if(callback){
+ 			callback(error);
+ 		}else{
+ 			scope.active = 'error';
+     		scope.error = error;
+ 		}
+ 	});
+};
 if(scope.user.id){
 	scope.loadSquad();
 }
