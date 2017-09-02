@@ -29,6 +29,7 @@ app.postProxyToOtherApp('/api/profile/:profileId', 'PROFILE_APP');
 
 
 app.getProxyToOtherApp('/api/squad/:ownerId', 'PLAYER_APP');
+app.postProxyToOtherApp('/api/lineUp/:ownerId', 'PLAYER_APP');
 app.getProxyToOtherApp('/api/player', 'PLAYER_APP');
 app.getProxyToOtherApp('api/player/:playerId', 'PLAYER_APP');
 app.getProxyToOtherApp('/api/offer/from/:profileId', 'PLAYER_APP');
