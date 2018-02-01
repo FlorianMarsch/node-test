@@ -160,7 +160,7 @@ server.postProxyToOtherApp=function(urlPath, appName){
 					}
 				}
 				var payload = req.body;
-				payload.user=req.user
+				payload.user=req.user;
 				
 				request({
 				    method: 'POST',
