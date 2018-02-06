@@ -18,6 +18,7 @@ ng-show="active == 'transfermarkt'">
         <th md-column md-numeric>Position</th>
         <th md-column md-numeric>Profile</th>
         <th md-column md-numeric>Punkte</th>
+        <th md-column md-numeric>Besitzer</th>
         <th md-column md-numeric>Preis</th>
         <th md-column></th>
       </tr>
@@ -40,6 +41,7 @@ ng-show="active == 'transfermarkt'">
           </a>
         </td>
         <td md-cell>{{player.points| number: 0}}</td>
+        <td md-cell>{{player.owner.name}}</td>
         <td md-cell>{{player.price | number: 0}}</td>
         <td md-cell>
             <i class="fas fa-shopping-cart"></i>
