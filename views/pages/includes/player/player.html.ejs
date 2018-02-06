@@ -26,7 +26,7 @@ ng-show="active == 'transfermarkt'">
       <tr md-row  ng-repeat="player in players">
         <td md-cell>
             <md-list flex>
-                <md-list-item class="md-3-line"  ng-click="null">
+                <md-list-item class="md-3-line" aria-label="{{player.name}}">
                   <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
             </md-list-item>
           </md-list>
