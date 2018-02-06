@@ -8,21 +8,38 @@ layout="row"
 <div
 layout="row"
 ng-show="active == 'transfermarkt'">
-<md-list flex>
-    
-      <md-list-item class="md-3-line" ng-repeat="player in players">
-        <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
-       
-      
-          <h3>{{ player.name }}</h3> 
-          <h4>{{ player.position }}</h4>
-          <a  target="_blank" ng-href="{{player.profileUrl}}"> Comunio Profil</a>
-     
-        
-          <p>{{ player.points}} Punkte</p>
-          <p>{{ player.price}} Credits </p>
-        
-       
-  </md-list-item>
-</md-list>
+
+<md-table-container>
+  <table md-table md-row-select multiple >
+    <thead md-head >
+      <tr md-row>
+        <th md-column><span></span></th>
+        <th md-column md-numeric><span>Name</span></th>
+        <th md-column md-numeric>Position</th>
+        <th md-column md-numeric>Profile</th>
+        <th md-column md-numeric>Punkte</th>
+        <th md-column md-numeric>Preis</th>
+        <th md-column md-numeric></th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row  ng-repeat="player in players">
+        <td md-cell>
+          <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
+        </td>
+        <td md-cell>{{player.name }}</td>
+        <td md-cell>{{player.position }}</td>
+        <td md-cell>
+          <a  target="_blank" ng-href="{{player.profileUrl}}"> Comunio</a>
+        </td>
+        <td md-cell>{{player.points| number: 1}}</td>
+        <td md-cell>{{player.price | number: 1}}</td>
+        <td md-cell>kaufen</td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+
+
+<
 </div>
