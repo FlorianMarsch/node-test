@@ -2,14 +2,14 @@
 <div
 layout="row"
   ng-show="active == 'transfermarkt'">
-  Deine Manschaft enthält {{squad.players.length}} Spieler.<br>
-Du hast noch ein Budget von {{squad.money}} Copa Credits zur Verfügung.
+  Der Transfermarkt enthält {{players.length}} Spieler.<br>
+  Du hast noch ein Budget von {{squad.money}} Copa Credits zur Verfügung.
 </div>
 <div
 layout="row"
 ng-show="active == 'transfermarkt'">
 <md-list flex>
-      <md-subheader class="md-no-sticky">{{squad.players.length}} Spieler</md-subheader>
+      <md-subheader class="md-no-sticky">{{players.length}} Spieler</md-subheader>
       <md-list-item class="md-3-line" ng-repeat="player in players" ng-click="null">
         <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
         <div class="md-list-item-text" layout="column">
