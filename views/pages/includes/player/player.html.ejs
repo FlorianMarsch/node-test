@@ -19,13 +19,18 @@ ng-show="active == 'transfermarkt'">
         <th md-column md-numeric>Profile</th>
         <th md-column md-numeric>Punkte</th>
         <th md-column md-numeric>Preis</th>
-        <th md-column md-numeric></th>
+        <th md-column></th>
       </tr>
     </thead>
     <tbody md-body>
       <tr md-row  ng-repeat="player in players">
         <td md-cell>
-          <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
+            <md-list flex>
+                <md-list-item class="md-3-line"  ng-click="null">
+                  <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
+            </md-list-item>
+          </md-list>
+        
         </td>
         <td md-cell>{{player.name }}</td>
         <td md-cell>{{player.position }}</td>
@@ -41,5 +46,5 @@ ng-show="active == 'transfermarkt'">
 </md-table-container>
 
 
-<
+
 </div>
