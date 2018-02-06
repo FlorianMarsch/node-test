@@ -1,0 +1,22 @@
+scope.players=[];
+
+scope.loadPlayers = function(callback){
+	$http({
+ 		method : 'GET',
+ 		url : '/api/player',
+ 		responseType : 'json'
+ 	}).then(function(response) {
+ 		scope.players=response.data;
+ 		if(callback){
+ 			callback();
+ 		}
+ 	},function(error) {
+ 		console.log(error);
+ 		if(callback){
+ 			callback(error);
+ 		}else{
+ 			scope.active = 'error';
+     		scope.error = error;
+ 		}
+ 	});
+};

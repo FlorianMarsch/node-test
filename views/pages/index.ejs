@@ -20,6 +20,7 @@
             		<% include includes/news/news.html.ejs %>
 					<% include includes/profile/profile.html.ejs %>
 					<% include includes/squad/squad.html.ejs %>
+					<% include includes/player/player.html.ejs %>
          </md-content>
       </div>
      
@@ -46,7 +47,9 @@
          	<% include includes/profile/profile.js.ejs %>
          	<% include includes/offer/offer.js.ejs %>
          	<% include includes/squad/squad.js.ejs %>
-         
+			<% include includes/player/player.js.ejs %>
+
+			 
          	if(scope.user.id){
 	         	$http({
 	         		method : 'GET',
