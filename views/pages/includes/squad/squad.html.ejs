@@ -3,7 +3,7 @@
 	layout="row"
     ng-show="active == 'squad'">
     Deine Manschaft enthält {{squad.players.length}} Spieler.<br>
-	Du hast noch ein Budget von {{squad.money}} Copa Credits zur Verfügung.
+	Du hast noch ein Budget von {{squad.money| number: 0}} Copa Credits zur Verfügung.
 </div>
 <div
 	layout="row"
