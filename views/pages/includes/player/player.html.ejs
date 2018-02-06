@@ -8,7 +8,7 @@ layout="row"
 <div
 layout="row"
 ng-show="active == 'transfermarkt'">
-<md-list flex>
+<md-grid-list cols="2" flex>
       <md-subheader class="md-no-sticky">{{players.length}} Spieler</md-subheader>
       <md-list-item class="md-3-line" ng-repeat="player in players" ng-click="null">
         <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
