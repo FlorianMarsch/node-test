@@ -32,11 +32,12 @@
           */
          var app = angular.module('myApp', [ 'md.data.table','ngMaterial' ]);
          
-         app.controller('formCtrl', function($scope, $timeout, $http) {
+         app.controller('formCtrl', function($scope, $timeout, $http,$mdDialog) {
          
          	var timeout = $timeout;
          	var scope = $scope;
          	var http = $http;
+			var dialog = $mdDialog;
          	var me = this;
          
          	scope.active = 'loading';

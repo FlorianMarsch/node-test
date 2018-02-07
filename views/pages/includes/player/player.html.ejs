@@ -44,7 +44,7 @@ ng-show="active == 'transfermarkt'">
         <td md-cell>{{player.owner.name}}</td>
         <td md-cell>{{player.price | number: 0}}</td>
         <td md-cell>
-            <i class="fas fa-shopping-cart" ng-click="bid(player)" ></i>
+            <i class="fas fa-shopping-cart" ng-click="bid(player,$event)" ></i>
         </td>
       </tr>
     </tbody>
@@ -52,7 +52,9 @@ ng-show="active == 'transfermarkt'">
 </md-table-container>
 
 
-<md-dialog aria-label="List dialog" >
+
+</div>
+<md-dialog id="bidDialog" aria-label="List dialog" >
   <md-dialog-content>
     test
   </md-dialog-content>
@@ -60,4 +62,3 @@ ng-show="active == 'transfermarkt'">
     <md-button ng-click="bid()" class="md-primary">Close Dialog</md-button>
   </md-dialog-actions>
 </md-dialog>
-</div>

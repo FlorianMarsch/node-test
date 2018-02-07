@@ -1,9 +1,14 @@
 scope.players=[];
 scope.bidOn;
-scope.bid = function( aPlayer){
+scope.bid = function( aPlayer,ev){
 	scope.bidOn = {};
 	scope.bidOn.player=aPlayer;
-	console.log(aPlayer);
+	dialog.show({
+		contentElement: '#bidDialog',
+		parent: angular.element(document.body),
+		targetEvent: ev,
+		clickOutsideToClose: true
+	  });
 }
 
 scope.loadPlayers = function(callback){
