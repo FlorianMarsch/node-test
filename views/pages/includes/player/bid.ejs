@@ -8,19 +8,19 @@
           <h4>{{ dialog.parent.bidOn.player.position }}</h4>
           <p>{{ dialog.parent.bidOn.player.points}} Punkte </p>
         </div>
-        <div class="md-list-item-text" layout="column">
-          <h3></h3> 
-          <h4>{{ dialog.parent.bidOn.player.owner.name }}</h4>
-          <p>{{dialog.parent.bidOn.player.price | number: 0}} Credits</p>
-        </div>
+       
  
  
       </md-list-item>
 
 
 <md-list-item >
-{{dialog.parent.bidOn.player.owner.name}}
+Dein Angebot geht an {{dialog.parent.bidOn.player.owner.name}}.
 </md-list-item>
+<md-list-item >
+  
+  <p>{{dialog.parent.bidOn.player.price | number: 0}} Credits</p>
+  </md-list-item>
 
 
 
