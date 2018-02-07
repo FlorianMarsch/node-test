@@ -4,7 +4,7 @@ scope.bid = function( aPlayer,ev){
 	scope.bidOn = {};
 	scope.bidOn.player=aPlayer;
 	dialog.show({
-		contentElement: '#bidDialog',
+		template: '<% include ./bid.html.ejs %>',
 		parent: angular.element(document.body),
 		targetEvent: ev,
 		clickOutsideToClose: true
