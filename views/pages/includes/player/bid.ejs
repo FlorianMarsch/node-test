@@ -1,31 +1,31 @@
 <md-dialog id="bidDialog" >
   <md-dialog-content>
     <md-list flex>
-      <md-list-item class="md-3-line" aria-label="{{bidOn.player.name}}">
-        <img ng-src="{{bidOn.player.imageUrl}}" class="md-avatar" alt="{{bidOn.player.name}}" />
+      <md-list-item class="md-3-line" aria-label="{{parent.bidOn.player.name}}">
+        <img ng-src="{{parent.bidOn.player.imageUrl}}" class="md-avatar" alt="{{parent.bidOn.player.name}}" />
   </md-list-item>
 
 
   <md-list-item >
-{{bidOn.player.name }}
+{{parent.bidOn.player.name }}
 </md-list-item>
 <md-list-item >
-{{bidOn.player.position }}
+{{parent.bidOn.player.position }}
 </md-list-item>
 <md-list-item >
-{{bidOn.player.points| number: 0}} Punkte
+{{parent.bidOn.player.points| number: 0}} Punkte
 </md-list-item>
 <md-list-item >
-{{bidOn.player.owner.name}}
+{{parent.bidOn.player.owner.name}}
 </md-list-item>
 <md-list-item >
-{{bidOn.player.price | number: 0}} Credits
+{{parent.bidOn.player.price | number: 0}} Credits
 </md-list-item>
 
 
 </md-list>
   </md-dialog-content>
   <md-dialog-actions>
-    <md-button ng-click="bid()" class="md-primary">Close Dialog</md-button>
+    <md-button ng-click="parent.bid()" class="md-primary">Close Dialog</md-button>
   </md-dialog-actions>
 </md-dialog>

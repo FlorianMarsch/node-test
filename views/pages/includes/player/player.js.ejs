@@ -4,6 +4,7 @@ scope.bid = function( aPlayer,ev){
 	scope.bidOn = {};
 	scope.bidOn.player=aPlayer;
 	dialog.show({
+		controller: function () { this.parent = $scope; },
 		templateUrl: '/bid',
 		parent: angular.element(document.body),
 		targetEvent: ev,
