@@ -7,7 +7,7 @@ var app = require('./app')();
 
 
 app.get('/', 'pages/index');
-app.get('/bid', 'pages/includes/player/bid.html');
+app.get('/bid', 'pages/includes/player/bid');
 
 app.protect('/api/league', 'league');
 
