@@ -1,4 +1,9 @@
 scope.players=[];
+scope.bidOn;
+scope.bid = function( aPlayer){
+	scope.bidOn = {};
+	scope.bidOn.player=aPlayer;
+}
 
 scope.loadPlayers = function(callback){
 	$http({
