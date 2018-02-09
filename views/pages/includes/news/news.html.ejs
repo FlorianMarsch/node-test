@@ -2,14 +2,22 @@
 	layout="row"
     ng-show="active == 'news'">
               
-               
-	<md-input-container  class="md-block" flex-gt-xs>
-		<label>Tippe eine Nachricht ein</label>
-		<input ng-model="createNews.message" md-maxlength="100">
-	</md-input-container>
-	<div>
-		<md-button  ng-click="submitNews()">senden</md-button>
-	 </div>
+    <form name="newsForm">        
+      <md-input-container  class="md-block" flex-gt-xs>
+        <label>Tippe eine Nachricht ein</label>
+        <input ng-model="createNews.message" md-maxlength="100" name="message" required md-asterisk >
+        <div ng-messages="newsForm.message.$error">
+            <div ng-message="required">Du musst etwas schreiben</div>
+            
+            <div ng-message="maxlength">
+              Das is ein wenig viel.
+            </div>
+            </div>
+      </md-input-container>
+      <div>
+        <md-button ng-disabled="newsForm.$invalid"  ng-click="submitNews()">senden</md-button>
+      </div>
+   </form>
 </div>
 <div
    layout="row"
