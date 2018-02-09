@@ -28,7 +28,7 @@
    
       <md-input-container layout="column">
         <label>Credits</label>
-        <input ng-model="dialog.parent.bidOn.price" type="number" required md-asterisk name="price" min="1"
+        <input ng-model="dialog.parent.bidOn.price" type="number" ng-required="dialog.parent.bidOn.players.length ===0" md-asterisk name="price" min="0"
         max="9999999">
         <div ng-messages="offerForm.price.$error">
           <div ng-message="required">Dein Gebot muss über 0 Credits liegen.</div>
