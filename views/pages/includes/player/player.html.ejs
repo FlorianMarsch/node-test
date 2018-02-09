@@ -24,7 +24,7 @@ ng-show="active == 'transfermarkt'">
       </tr>
     </thead>
     <tbody md-body>
-      <tr md-row  ng-repeat="player in players | filter : market">
+      <tr md-row  ng-repeat="player in players | filter : {market:true}">
         <td md-cell>
             <md-list flex>
                 <md-list-item class="md-3-line" aria-label="{{player.name}}">
