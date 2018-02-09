@@ -25,7 +25,7 @@ scope.submitBid = function(ev){
 	scope.active = 'loading';
 	$http({
 		method : 'POST',
-		url : '/api/offer/to/'+ev.to._id,
+		url : '/api/offer/from/'+ev.from._id,
 		responseType : 'json',
 		data:JSON.stringify(ev)
 	}).then(function(response) {
