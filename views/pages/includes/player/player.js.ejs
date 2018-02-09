@@ -1,7 +1,12 @@
 scope.players=[];
 scope.bidOn;
 scope.bid = function( aPlayer,ev){
+	if(!aPlayer){
+		return;
+	}
 	scope.bidOn = {};
+	scope.bidOn.price = aPlayer.price;
+	scope.bidOn.to = aPlayer.owner;
 	scope.bidOn.player=aPlayer;
 	dialog.show({
 		controller: function () { this.parent = $scope; },
@@ -11,6 +16,9 @@ scope.bid = function( aPlayer,ev){
 		targetEvent: ev,
 		clickOutsideToClose: true
 	  });
+};
+scope.submitBid = function(ev){
+	console.log(ev);
 }
 
 scope.loadPlayers = function(callback){

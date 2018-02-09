@@ -14,12 +14,28 @@
       </md-list-item>
 
 
+
 <md-list-item >
-Dein Angebot geht an {{dialog.parent.bidOn.player.owner.name}}.
-</md-list-item>
-<md-list-item >
-  
-  <p>{{dialog.parent.bidOn.player.price | number: 0}} Credits</p>
+    <form name="offerForm">
+      <md-input-container>
+        <label>Dein Angebot geht an {{dialog.parent.bidOn.to.name}}</label>
+        <input ng-model="dialog.parent.bidOn.price" required md-no-asterisk name="price" min="0"
+        max="9999999" ng-pattern="/^1234$/">
+        <div ng-messages="offerForm.price.$error">
+          <div ng-message="required">Dein Gebot muss über 0 Credits liegen.</div>
+          <div ng-message="min">
+            Dein Gebot muss über 0 Credits liegen.
+          </div>
+
+          <div ng-message="pattern">
+            Das soll ein Angebot sein?
+          </div>
+
+          <div ng-message="max">
+            {{offerForm.price.$viewValue | currency:"Credits":0}} ? Das is ein wenig viel.
+          </div>
+          </md-input-container>
+      </form>
   </md-list-item>
 
 
@@ -27,6 +43,6 @@ Dein Angebot geht an {{dialog.parent.bidOn.player.owner.name}}.
 </md-list>
   </md-dialog-content>
   <md-dialog-actions>
-    <md-button ng-click="dialog.parent.bid()" class="md-primary">bieten</md-button>
+    <md-button type="submit" ng-click="dialog.parent.submitBid()" class="md-primary">bieten</md-button>
   </md-dialog-actions>
 </md-dialog>
