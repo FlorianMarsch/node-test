@@ -26,7 +26,7 @@
 
     </md-list>
    
-      <md-input-container>
+      <md-input-container layout="column">
         <label>Credits</label>
         <input ng-model="dialog.parent.bidOn.price" type="number" required md-asterisk name="price" min="1"
         max="9999999">
@@ -40,11 +40,11 @@
           </div>
           </md-input-container>
 
-          <md-input-container>
+          <md-input-container layout="column">
               <label>Spieler</label>
 
 
-              <md-select name="players" ng-model="dialog.parent.bidOn.players" multiple>
+              <md-select name="players" ng-model="dialog.parent.squad.players" multiple>
                   <md-option ng-value="player" ng-repeat="player in dialog.parent.players">
                       {{player.name }}
                   </md-option>
@@ -58,7 +58,7 @@
   </md-dialog-content>
 
   <md-dialog-actions>
-      <md-button ng-disabled="offerForm.$invalid" type="submit" ng-click="dialog.parent.submitBid()" class="md-primary">bieten</md-button>
+      <md-button ng-disabled="offerForm.$invalid" ng-click="dialog.parent.submitBid(dialog.parent.bidOn)" class="md-primary">bieten</md-button>
     </md-dialog-actions>
 </form>
 </md-dialog>
