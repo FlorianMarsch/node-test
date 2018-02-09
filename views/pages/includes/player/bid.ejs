@@ -44,8 +44,8 @@
               <label>Spieler</label>
 
 
-              <md-select name="players" ng-model="dialog.parent.squad.players" multiple>
-                  <md-option ng-value="player" ng-repeat="player in dialog.parent.players">
+              <md-select name="players" ng-model="dialog.parent.bidOn.players" multiple>
+                  <md-option ng-value="player" ng-repeat="player in dialog.parent.squad.players">
                       {{player.name }}
                   </md-option>
                 </md-select>
