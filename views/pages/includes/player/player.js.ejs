@@ -20,6 +20,20 @@ scope.bid = function( aPlayer,ev){
 		clickOutsideToClose: true
 	  });
 };
+scope.changeBid = function( aBid,ev){
+	if(!aBid){
+		return;
+	}
+	scope.bidOn = aBid;
+	dialog.show({
+		controller: function () { this.parent = $scope; },
+		controllerAs: 'dialog',
+		templateUrl: '/bid',
+		parent: angular.element(document.body),
+		targetEvent: ev,
+		clickOutsideToClose: true
+	  });
+};
 scope.submitBid = function(ev){
 	dialog.hide();
 	scope.active = 'loading';
