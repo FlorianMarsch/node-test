@@ -1,5 +1,5 @@
 <md-dialog id="bidDialog" >
-
+    <form name="offerForm">
  
 
       <md-toolbar>
@@ -25,7 +25,7 @@
 
 
     </md-list>
-    <form name="offerForm">
+   
       <md-input-container>
         <label>Credits</label>
         <input ng-model="dialog.parent.bidOn.price" type="number" required md-asterisk name="price" min="1"
@@ -53,9 +53,12 @@
           </md-input-container>
 
 
-          <md-button ng-disabled="offerForm.$invalid" type="submit" ng-click="dialog.parent.submitBid()" class="md-primary">bieten</md-button>
-      </form>
+         
 
   </md-dialog-content>
 
+  <md-dialog-actions>
+      <md-button ng-disabled="offerForm.$invalid" type="submit" ng-click="dialog.parent.submitBid()" class="md-primary">bieten</md-button>
+    </md-dialog-actions>
+</form>
 </md-dialog>
