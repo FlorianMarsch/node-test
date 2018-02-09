@@ -24,7 +24,15 @@ scope.changeBid = function( aBid,ev){
 	if(!aBid){
 		return;
 	}
-	scope.bidOn = aBid;
+	scope.bidOn = JSON.parse(JSON.stringify(aBid));
+	
+	delete scope.bidOn._id;
+	delete scope.bidOn.__v;
+	delete scope.bidOn.$$hashKey;
+	delete scope.bidOn.status;
+	delete scope.bidOn.updated;
+	
+	
 	dialog.show({
 		controller: function () { this.parent = $scope; },
 		controllerAs: 'dialog',
