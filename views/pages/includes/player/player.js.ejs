@@ -21,7 +21,21 @@ scope.bid = function( aPlayer,ev){
 	  });
 };
 scope.submitBid = function(ev){
-	console.log(ev);
+	dialog.hide();
+	scope.active = 'loading';
+	$http({
+		method : 'POST',
+		url : '/api/offer/to/'+ev.to._id,
+		responseType : 'json',
+		data:JSON.stringify(ev)
+	}).then(function(response) {
+		scope.loadDemands(function(){
+			scope.active = 'angebote';
+		});
+	},function(error) {
+		scope.active = 'error';
+		scope.error = error;
+	});
 }
 
 scope.loadPlayers = function(callback){
