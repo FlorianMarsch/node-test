@@ -32,6 +32,15 @@
             <h4>{{ demand.player.position }}</h4>
             <p>{{ demand.player.points}} Punkte</p>
           </div>
+          <div class="md-list-item-text" layout="column">
+            <h4>gegen</h4>
+            <p>{{ demand.price}} Credits</p>
+          </div>
+          <div ng-repeat="x in demand.players" class="md-list-item-text" layout="column">
+            <img ng-src="{{x.imageUrl}}" class="md-avatar" alt="{{x.name}}" />
+            <h3>{{ x.name }}</h3> 
+            <p>{{ x.price}} Credits</p>
+          </div>
          
 		</md-list-item>
 	</md-list>
