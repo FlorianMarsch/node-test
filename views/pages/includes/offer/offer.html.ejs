@@ -44,14 +44,14 @@
 
 
                 <md-list layout="row" layout-wrap>
-                    <md-list-item class="md-3-line" flex="33">
+                    <md-list-item class="md-3-line" flex="{{100 / 1+(demand.players.length)}}">
                         <div class="md-list-item-text" layout="column">
                             <h3>gegen</h3> 
                             <p>{{ demand.price| number: 0}} Credits + {{ demand.players.length}} Spieler</p>
                             <p>{{ demand.status}} </p>
                           </div>
                     </md-list-item>
-                    <md-list-item class="md-3-line" flex="33" ng-repeat="x in demand.players" layout="row"
+                    <md-list-item class="md-3-line" flex="{{100 / 1+(demand.players.length)}}" ng-repeat="x in demand.players" layout="row"
                         layout-wrap>
                       <img ng-src="{{x.imageUrl}}" class="md-avatar" alt="{{x.name}}" />
                       <div class="md-list-item-text" layout="column">
