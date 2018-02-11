@@ -11,13 +11,14 @@
 	  <md-list flex="25">
         <md-subheader class="md-no-sticky">Tor</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Torwart'} | orderBy : '-points' "  ng-click="toggleLineUp(player)" >
-          <md-checkbox  ng-checked="linedUp(player)"  ng-click="toggleLineUp(player)" />
-          <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
-          <div class="md-list-item-text" layout="column">
-            <h3>{{ player.name }}</h3> 
-            <h4>{{ player.position }}</h4>
-            <p>{{ player.points}} Punkte {{ player.lastUse ? ', Letzter Einsatz : '+player.lastUse : ''}}</p>
-          </div>
+          <md-checkbox  ng-checked="linedUp(player)"  ng-click="toggleLineUp(player)" >
+            <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{ player.name }}</h3> 
+              <h4>{{ player.position }}</h4>
+              <p>{{ player.points}} Punkte {{ player.lastUse ? ', Letzter Einsatz : '+player.lastUse : ''}}</p>
+            </div>
+          </md-checkbox>
       </md-list-item>
     </md-list>
     
