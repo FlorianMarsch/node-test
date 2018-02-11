@@ -26,8 +26,8 @@ scope.loadSquad = function(callback){
 
 
 scope.linedUp = function(aPlayer){
-	var linedUp = scope.squad.lineUp.some(function(player){player._id == aPlayer._id});
-	console.log(aPlayer +' '+linedUp);
+	var linedUp = scope.squad.lineUp.some(function(player){return player._id == aPlayer._id});
+	console.log(aPlayer._id +' '+linedUp);
 	return linedUp;
 };
 scope.toggleLineUp = function(element){
