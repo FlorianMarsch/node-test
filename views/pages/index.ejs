@@ -32,7 +32,13 @@
           * You must include the dependency on 'ngMaterial' 
           */
          var app = angular.module('myApp', [ 'md.data.table','ngMaterial','ngMessages' ]);
-         
+		 
+		 app.config(function($mdThemingProvider) {
+			$mdThemingProvider.theme('default')
+				.primaryPalette('pink')
+				.accentPalette('orange');
+			});
+
          app.controller('formCtrl', function($scope, $timeout, $http,$mdDialog) {
          
          	var timeout = $timeout;
