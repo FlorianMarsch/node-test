@@ -26,9 +26,7 @@ scope.loadSquad = function(callback){
 
 
 scope.linedUp = function(aPlayer){
-	var linedUp = scope.squad.lineUp.some(function(player){return player._id == aPlayer._id});
-	console.log(aPlayer._id +' '+linedUp);
-	return linedUp;
+	return scope.squad.lineUp.some(function(player){return player._id == aPlayer._id});
 };
 scope.toggleLineUp = function(element){
 	if (scope.linedUp(element)) {
@@ -62,7 +60,6 @@ scope.saveLineUp = function(callback){
 		 responseType : 'json',
 		 data:JSON.stringify(scope.squad.lineUp)
  	}).then(function(response) {
- 		scope.squad=response.data;
  		if(callback){
  			callback();
  		}
