@@ -8,7 +8,7 @@
 <div
 	layout="row"
 	ng-show="active == 'squad'">
-	<md-list flex="25">
+	  <md-list flex="25">
         <md-subheader class="md-no-sticky">Tor</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Torwart'}" ng-click="null">
           <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
@@ -17,7 +17,8 @@
             <h4>{{ player.position }}</h4>
             <p>{{ player.points}} Punkte {{ player.lastUse ? ', Letzter Einsatz : '+player.lastUse : ''}}</p>
           </div>
-    </md-list-item>
+      </md-list-item>
+    </md-list>
     
     <md-list flex="25">
         <md-subheader class="md-no-sticky">Abwehr</md-subheader>
@@ -28,8 +29,9 @@
             <h4>{{ player.position }}</h4>
             <p>{{ player.points}} Punkte {{ player.lastUse ? ', Letzter Einsatz : '+player.lastUse : ''}}</p>
           </div>
-    </md-list-item>    
-    
+      </md-list-item>    
+    </md-list>
+
     <md-list flex="25">
         <md-subheader class="md-no-sticky">Mittelfeld</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Mittelfeld'}" ng-click="null">
@@ -39,8 +41,9 @@
             <h4>{{ player.position }}</h4>
             <p>{{ player.points}} Punkte {{ player.lastUse ? ', Letzter Einsatz : '+player.lastUse : ''}}</p>
           </div>
-    </md-list-item>
-    
+      </md-list-item>
+    </md-list>
+
     <md-list flex="25">
         <md-subheader class="md-no-sticky">Sturm</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Sturm'}" ng-click="null">
@@ -50,6 +53,6 @@
             <h4>{{ player.position }}</h4>
             <p>{{ player.points}} Punkte {{ player.lastUse ? ', Letzter Einsatz : '+player.lastUse : ''}}</p>
           </div>
-		</md-list-item>
-	</md-list>
-</div>
+		  </md-list-item>
+	  </md-list>
+  </div>
