@@ -25,6 +25,7 @@ scope.loadSquad = function(callback){
 
 scope.linedUp = function(element){
 	var index = scope.squad.lineUp.indexOf(element);
+	console.log(index);
 	if (index > -1) {
 		return true;
 	}else{
@@ -41,10 +42,12 @@ scope.toogleLineUp = function(element){
 };
 
 scope.addToLineUp = function(element){
+	console.log('add' + element);
 	scope.squad.lineUp.push(element);
 	scope.saveLineUp();
 };
 scope.removeFromLineUp = function(element){
+	console.log('remove' + element);
 	var index = scope.squad.lineUp.indexOf(element);
 	if (index > -1) {
 		scope.squad.lineUp.splice(index, 1);
