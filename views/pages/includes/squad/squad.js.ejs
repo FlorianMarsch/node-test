@@ -28,7 +28,7 @@ scope.loadSquad = function(callback){
 scope.linedUp = function(element){
 	return scope.squad.lineUp.indexOf(element) > -1;
 };
-scope.toogleLineUp = function(element){
+scope.toggleLineUp = function(element){
 	if (scope.linedUp(element)) {
 		scope.removeFromLineUp(element);
 	}else{
