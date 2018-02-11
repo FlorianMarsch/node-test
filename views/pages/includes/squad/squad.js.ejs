@@ -25,8 +25,8 @@ scope.loadSquad = function(callback){
 
 
 
-scope.linedUp = function(element){
-	return scope.squad.lineUp.indexOf(element) > -1;
+scope.linedUp = function(aPlayer){
+	return scope.squad.lineUp.some(function(player){player._id == aPlayer._id});
 };
 scope.toggleLineUp = function(element){
 	if (scope.linedUp(element)) {
@@ -40,12 +40,17 @@ scope.addToLineUp = function(element){
 	scope.squad.lineUp.push(element);
 	scope.saveLineUp();
 };
-scope.removeFromLineUp = function(element){
-	var index = scope.squad.lineUp.indexOf(element);
-	if (index > -1) {
-		scope.squad.lineUp.splice(index, 1);
-		scope.saveLineUp();
-	}
+scope.removeFromLineUp = function(aPlayer){
+
+	var newLineUp = [];
+	scope.squad.lineUp.forEach(
+		function(player){
+			if(player._id !== aPlayer._id){
+				newLineUp.push(player);
+			}
+		});
+	scope.squad.lineUp = newLineUp;
+	scope.saveLineUp();
 };
 
 scope.saveLineUp = function(callback){
