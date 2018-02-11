@@ -23,17 +23,23 @@ scope.loadSquad = function(callback){
  	});
 };
 
-scope.linedUp = function(element){
-	var index = scope.squad.lineUp.indexOf(element);
-	if (index > -1) {
-		return true;
-	}else{
-		return false;
+$scope.toggle = function (item, list) {
+	var idx = list.indexOf(item);
+	if (idx > -1) {
+	  list.splice(idx, 1);
 	}
+	else {
+	  list.push(item);
+	}
+  };
+
+
+
+scope.linedUp = function(element){
+	return scope.squad.lineUp.indexOf(element) > -1;
 };
 scope.toogleLineUp = function(element){
-	var index = scope.squad.lineUp.indexOf(element);
-	if (index > -1) {
+	if (scope.linedUp(element)) {
 		scope.removeFromLineUp(element);
 	}else{
 		scope.addToLineUp(element);
