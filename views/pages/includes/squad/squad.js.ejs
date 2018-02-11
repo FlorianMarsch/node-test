@@ -1,4 +1,7 @@
 scope.squad={};
+
+
+
 scope.loadSquad = function(callback){
 	$http({
  		method : 'GET',
@@ -20,12 +23,29 @@ scope.loadSquad = function(callback){
  	});
 };
 
+scope.linedUp = function(){
+	var index = scope.squad.lineUp.indexOf(element);
+	if (index > -1) {
+		return true;
+	}else{
+		return false;
+	}
+};
+scope.toogleLineUp = function(element){
+	var index = scope.squad.lineUp.indexOf(element);
+	if (index > -1) {
+		scope.removeFromLineUp(element);
+	}else{
+		scope.addToLineUp(element);
+	}
+};
+
 scope.addToLineUp = function(element){
-	scope.squad.lineUp.push(element._id);
+	scope.squad.lineUp.push(element);
 	scope.saveLineUp();
 };
 scope.removeFromLineUp = function(element){
-	var index = scope.squad.lineUp.indexOf(element._id);
+	var index = scope.squad.lineUp.indexOf(element);
 	if (index > -1) {
 		scope.squad.lineUp.splice(index, 1);
 		scope.saveLineUp();
