@@ -27,7 +27,7 @@
     <md-list flex="25">
         <md-subheader class="md-no-sticky">Abwehr</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Abwehr'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
-          <div class="md-list-item-text" layout="column">
+          <div>
             <md-checkbox  ng-checked="linedUp(player)"  ng-click="toggleLineUp(player)"  />
           </div>
           <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
@@ -42,7 +42,7 @@
     <md-list flex="25">
         <md-subheader class="md-no-sticky">Mittelfeld</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Mittelfeld'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
-            <div class="md-list-item-text" layout="column">
+            <div>
                 <md-checkbox  ng-checked="linedUp(player)"  ng-click="toggleLineUp(player)" />
               </div>
           <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
@@ -57,7 +57,7 @@
     <md-list flex="25">
         <md-subheader class="md-no-sticky">Sturm</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Sturm'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
-            <div class="md-list-item-text" layout="column">
+            <div>
                 <md-checkbox  ng-checked="linedUp(player)"   ng-click="toggleLineUp(player)" />
               </div>
           <img ng-src="{{player.imageUrl}}" class="md-avatar" alt="{{player.name}}" />
