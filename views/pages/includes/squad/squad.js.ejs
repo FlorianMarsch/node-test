@@ -24,7 +24,7 @@ scope.loadSquad = function(callback){
 };
 
 scope.goalkeepers = function(){
-	return scope.squad.lineUp.filter(function(player){return player.position === 'Tor'}).length;
+	return scope.squad.lineUp.filter(function(player){return player.position === 'Torwart'}).length;
 };
 scope.defenders = function(){
 	return scope.squad.lineUp.filter(function(player){return player.position === 'Abwehr'}).length;
