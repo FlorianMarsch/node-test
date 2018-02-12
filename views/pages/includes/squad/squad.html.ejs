@@ -10,13 +10,13 @@
     ng-show="active == 'squad'">
     <i class="fas fa-check" ng-if="squad.lineUp.length === 11"></i>
     <i class="fas fa-times" ng-if="squad.lineUp.length !== 11"></i>
-    Du hast {{squad.lineUp.length}} Spieler aufgestellt.
+    Du hast {{squad.lineUp.length}} Spieler aufgestellt. Deine Aufstellung ist 4-4-2
 </div>
 <div
 	layout="row"
 	ng-show="active == 'squad'">
 	  <md-list flex="25">
-        <md-subheader class="md-no-sticky">Tor</md-subheader>
+        <md-subheader class="md-no-sticky">Tor (mindestens 1)</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Torwart'} | orderBy : '-points' "  ng-click="toggleLineUp(player)" >
           <div>
             <md-checkbox  ng-checked="linedUp(player)"  ng-click="toggleLineUp(player)" />
@@ -32,7 +32,7 @@
     </md-list>
     
     <md-list flex="25">
-        <md-subheader class="md-no-sticky">Abwehr</md-subheader>
+        <md-subheader class="md-no-sticky">Abwehr (mindestens 3)</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Abwehr'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
           <div>
             <md-checkbox  ng-checked="linedUp(player)"  ng-click="toggleLineUp(player)"  />
@@ -47,7 +47,7 @@
     </md-list>
 
     <md-list flex="25">
-        <md-subheader class="md-no-sticky">Mittelfeld</md-subheader>
+        <md-subheader class="md-no-sticky">Mittelfeld (mindestens 3)</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Mittelfeld'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
             <div>
                 <md-checkbox  ng-checked="linedUp(player)"  ng-click="toggleLineUp(player)" />
@@ -62,7 +62,7 @@
     </md-list>
 
     <md-list flex="25">
-        <md-subheader class="md-no-sticky">Sturm</md-subheader>
+        <md-subheader class="md-no-sticky">Sturm (mindestens 1)</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Sturm'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
             <div>
                 <md-checkbox  ng-checked="linedUp(player)"   ng-click="toggleLineUp(player)" />
