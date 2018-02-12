@@ -7,6 +7,13 @@
 </div>
 <div
 	layout="row"
+    ng-show="active == 'squad'">
+    <i class="fas fa-check" ng-if="{{squad.lineUp.length === 11}}"></i>
+    <i class="fas fa-times" ng-if="{{squad.lineUp.length !== 11}}"></i>
+    Du hast {{squad.lineUp.length}} Spieler aufgestellt.
+</div>
+<div
+	layout="row"
 	ng-show="active == 'squad'">
 	  <md-list flex="25">
         <md-subheader class="md-no-sticky">Tor</md-subheader>
@@ -69,3 +76,14 @@
 		  </md-list-item>
 	  </md-list>
   </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
