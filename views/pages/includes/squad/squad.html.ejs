@@ -39,7 +39,7 @@
     <md-list flex="25">
         <md-subheader class="md-no-sticky">
           Abwehr
-            <span ng-if="defenders() !== 3">(mindestens 3)</span>
+            <span ng-if="defenders() < 3">(mindestens 3)</span>
             <i class="fas fa-check" ng-if="defenders() >= 3"></i>
         </md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Abwehr'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
@@ -58,7 +58,7 @@
     <md-list flex="25">
         <md-subheader class="md-no-sticky">
           Mittelfeld
-            <span ng-if="midfielders() !== 3">(mindestens 3)</span>
+            <span ng-if="midfielders() < 3">(mindestens 3)</span>
             <i class="fas fa-check" ng-if="midfielders() >= 3"></i>
         <md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Mittelfeld'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
@@ -77,7 +77,7 @@
     <md-list flex="25">
         <md-subheader class="md-no-sticky">
           Sturm
-            <span ng-if="scorers() !== 1">(mindestens 1)</span>
+            <span ng-if="scorers() < 1">(mindestens 1)</span>
             <i class="fas fa-check" ng-if="scorers() >= 1"></i>
         </md-subheader>
         <md-list-item class="md-3-line" ng-repeat="player in squad.players | filter : {position : 'Sturm'} | orderBy : '-points'"  ng-click="toggleLineUp(player)" >
