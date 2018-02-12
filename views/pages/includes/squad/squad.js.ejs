@@ -54,6 +54,9 @@ scope.removeFromLineUp = function(aPlayer){
 };
 
 scope.saveLineUp = function(callback){
+	if(scope.squad.lineUp.length > 11){
+		return;
+	}
 	$http({
  		method : 'POST',
  		url : '/api/lineUp/'+scope.user.id,
