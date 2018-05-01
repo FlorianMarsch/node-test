@@ -4,25 +4,61 @@
                layout-sm="column"
                layout-align="space-around">
                <form action="/login" method="POST">
-                  <md-card >
-                     <md-card-title>
-                        <md-card-title-text>
-                           <span class="md-headline">Anmeldung</span>
-                        </md-card-title-text>
-                     </md-card-title>
-                     <md-card-content>
-                        <md-input-container>
-                           <label>User</label>
-                           <input name="username" value="Mickey" type="text">
-                        </md-input-container>
-                        <md-input-container>
-                           <label>Password</label>
-                           <input name="password" value="Mouse" type="password">
-                        </md-input-container>
-                     </md-card-content>
-                     <md-card-actions layout="row" layout-align="end center">
-                        <md-button type="submit" class=" md-primary md-raised">login</md-button>
-                     </md-card-actions>
-                  </md-card>
-               </form>
+                <md-card >
+                   <md-card-title>
+                      <md-card-title-text>
+                         <span class="md-headline">Anmeldung</span>
+                      </md-card-title-text>
+                   </md-card-title>
+                   <md-card-content>
+                      <md-input-container>
+                         <label>User</label>
+                         <input name="username" placeholder="Mickey" type="text">
+                      </md-input-container>
+                      <md-input-container>
+                         <label>Password</label>
+                         <input name="password" placeholder="Mouse" type="password">
+                      </md-input-container>
+                   </md-card-content>
+                   <md-card-actions layout="row" layout-align="end center">
+                      <md-button type="submit" class=" md-primary md-raised">login</md-button>
+                      
+                   </md-card-actions>
+                </md-card>
+             </form>
+             <form action="/signup" method="POST">
+                <md-card >
+                   <md-card-title>
+                      <md-card-title-text>
+                         <span class="md-headline">Anmeldung</span>
+                      </md-card-title-text>
+                   </md-card-title>
+                   <md-card-content>
+                       <p>
+                           Zur Closed Beta Registrieren : 
+                       </p>
+                       
+                      <md-input-container>
+                         <label>User</label>
+                         <input name="username" placeholder="Mickey" type="text">
+                      </md-input-container>
+                      <md-input-container>
+                         <label>Password</label>
+                         <input name="password" placeholder="Mouse" type="password">
+                      </md-input-container>
+                      <md-input-container>
+                            <label>Email</label>
+                            <input name="email" placeholder="MMouse@indahouse.de" type="email">
+                         </md-input-container>
+                   </md-card-content>
+                   <md-card-actions layout="row" layout-align="end center">
+                        <md-button >registrieren</md-button>
+                   </md-card-actions>
+                </md-card>
+             </form>
+
+
+
+
+               
             </div>
