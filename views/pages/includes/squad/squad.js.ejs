@@ -24,19 +24,34 @@ scope.loadSquad = function(callback){
 };
 
 scope.goalkeepers = function(){
+	if(!scope.squad || !scope.squad.lineUp){
+		return [];
+	}
 	return scope.squad.lineUp.filter(function(player){return player.position === 'Torwart'}).length;
 };
 scope.defenders = function(){
+	if(!scope.squad || !scope.squad.lineUp){
+		return [];
+	}
 	return scope.squad.lineUp.filter(function(player){return player.position === 'Abwehr'}).length;
 };
 scope.midfielders = function(){
+	if(!scope.squad || !scope.squad.lineUp){
+		return [];
+	}
 	return scope.squad.lineUp.filter(function(player){return player.position === 'Mittelfeld'}).length;
 };
 scope.scorers = function(){
+	if(!scope.squad || !scope.squad.lineUp){
+		return [];
+	}
 	return scope.squad.lineUp.filter(function(player){return player.position === 'Sturm'}).length;
 };
 
 scope.linedUp = function(aPlayer){
+	if(!scope.squad || !scope.squad.lineUp){
+		return false;
+	}
 	return scope.squad.lineUp.some(function(player){return player._id == aPlayer._id});
 };
 scope.toggleLineUp = function(element){
